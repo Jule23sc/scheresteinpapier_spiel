@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Schere Stein Papier</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script defer src="./assets/javascript/main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Schere, Stein, Papier</h1>
+    </header>
+    <main>
+        <form class="rundenanzahl_form">
+        <section class="rundenanzahl">
+            <div>
+                <h3>Wie viele Runden werden gespielt?</h3>
+            </div>
+            <div>
+                <label for="drei">3</label>
+                <input type="radio" name="rounds" class="three_rounds" checked>
+            </div>
+            <div>
+                <label for="fünf">5</label>
+            <input type="radio" name="rounds" class="five_rounds">
+            </div>
+            <div>
+                <label for="zehn">10</label>
+            <input type="radio" name="rounds" class="ten_rounds">
+            </div>
+            <div class="aktuelle_runde">
+                <p class="runde" hidden>0</p>
+            </div>
+        </section>
+        </form>
+        <section class="punktestand">
+            <div class="punktestand_div">
+                    <p>Spieler</p>
+                    <div>
+                        <span class="spieler_punkte">0</span><span>:</span><span class="ki_punkte">0</span>
+                    </div>
+                    <p>KI</p>
+            </div>
+        </section>
+        <section class="tools">
+            <form class="tools_form">
+            <button type="button" class="tool" id="schere">✌️</button>
+            <button type="button" class="tool" id="stein">✊</button>
+            <button type="button" class="tool" id="papier">✋</button>
+            <p>↑ Triff deine Wahl ↑</p>
+        </form>
+        </section>
+        <section class="gameplay">
+            <p class="ergebnis" hidden></p>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <button type="reset" class="reset_button" >Neues Spiel</button>
+        </div>
+    </footer>
+</body>
+</html>
