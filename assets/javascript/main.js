@@ -38,9 +38,8 @@ const spielErgebnis = document.querySelector(".ergebnis");
 let spielerScore = 0;
 let kiScore = 0;
 
-//func
-function gamePlay(spielerTool) {
-    const kiTool = "schere";
+//func werteverteilung
+function checkRound(spielerTool, kiTool) {
     if (spielerTool === "schere") {
         if (kiTool === "schere") {
             return 0;
@@ -63,7 +62,7 @@ function gamePlay(spielerTool) {
             return -1;
         }
     }
-    if (pielerTool === "papier") {
+    if (spielerTool === "papier") {
         if (kiTool === "schere") {
             return -1;
         }
@@ -75,3 +74,23 @@ function gamePlay(spielerTool) {
         }
     }
 }
+//func
+const kiTools = ["schere", "stein", "papier"];
+const kiToolChoose = () => {
+    const randomkt = Math.floor(Math.random()*kiTools.length);
+    return kiTools[randomkt];
+}
+
+
+function gamePlay(event) {
+    const playerTool = event.target.id;
+    const kiTool = kiToolChoose();
+    const roundWin = checkRound(playerTool, kiTool);
+    //console.log("ich habe gewählt:", playerTool);
+    //console.log("Gegner hat gewählt:", kiTool);
+    console.log(roundWin);
+}
+
+inputTools.forEach(tool => {
+    tool.addEventListener('click', gamePlay)
+})
