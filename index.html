@@ -16,17 +16,15 @@
             <div>
                 <h3>Wie viele Runden werden gespielt?</h3>
             </div>
-            <div>
+            <div id="round_count">
                 <label for="drei">3</label>
-                <input type="radio" name="rounds" class="three_rounds" checked>
-            </div>
-            <div>
+                <input type="radio" name="rounds" class="three_rounds" value="3" checked>
+            
                 <label for="fünf">5</label>
-            <input type="radio" name="rounds" class="five_rounds">
-            </div>
-            <div>
+                <input type="radio" name="rounds" class="five_rounds" value="5">
+            
                 <label for="zehn">10</label>
-            <input type="radio" name="rounds" class="ten_rounds">
+                <input type="radio" name="rounds" class="ten_rounds" value="10">
             </div>
             <div class="aktuelle_runde">
                 <p class="runde" hidden>0</p>
@@ -56,7 +54,7 @@
     </main>
     <footer>
         <div>
-            <button type="reset" class="reset_button">Neues Spiel</button>
+            <button onclick="startNewGame()" type="button" class="reset_button" id="resetbtn">Neues Spiel</button>
         </div>
     </footer>
 </body>

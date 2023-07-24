@@ -13,6 +13,9 @@
 
 //html zugriff, inputs:
 //radiobuttons
+const inputRundenAnzahl = document.querySelector('input[name="rounds"]:checked');
+//sucht ausgewählten radio raus
+
 const inputRundenAnzahlDrei = document.querySelector("three_rounds");
 const inputRundenAnzahlFünf = document.querySelector("five_rounds");
 const inputRundenAnzahlZehn = document.querySelector("ten_rounds");
@@ -33,10 +36,11 @@ const aktuelleRunde = document.querySelector(".runde");
 const spielErgebnis = document.querySelector(".ergebnis");
 //alert fenster, wenn player wins - wunsch
 
+let round = 0;
+let playerScore = 0;
+let aiScore = 0;
+let maxRounds = 0;
 
-//variablen festlegen
-let spielerScore = 0;
-let kiScore = 0;
 
 //func werteverteilung
 function checkRound(spielerTool, kiTool) {
@@ -81,13 +85,29 @@ const kiToolChoose = () => {
     return kiTools[randomkt];
 }
 
+//runden festlegen, runden prüfen, score updaten
+function startNewGame() {
+    maxRounds = inputRundenAnzahl.value;
+    //für jedes game
+    round = 0;
+    playerScore = 0;
+    aiScore = 0;
+    console.log("neues Spiel gestartet");
+}
+
 
 function gamePlay(event) {
     const playerTool = event.target.id;
     const kiTool = kiToolChoose();
     const roundWin = checkRound(playerTool, kiTool);
-    //console.log("ich habe gewählt:", playerTool);
-    //console.log("Gegner hat gewählt:", kiTool);
+    if(roundWin === 1) {
+        playerScore++;
+        //erhöhe dann jeweils um 1
+    } else if(roundWin === -1) {
+        aiScore++;
+    }
+    console.log("ich habe gewählt:", playerTool);
+    console.log("Gegner hat gewählt:", kiTool);
     console.log(roundWin);
 }
 
